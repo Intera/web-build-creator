@@ -17,6 +17,9 @@ all other dependencies are included.
 * Define a config object
 * Call wbc.create_build(config)
 
+## Caveats
+If you compress HTML, you must use semicolons for inline Javascript, and you can create Javascript comments only on the last line in a ``<script>`` tag.
+
 ## Configuration
 See example-build-config.js
 
