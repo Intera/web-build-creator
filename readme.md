@@ -40,6 +40,7 @@ and can contain the following keys
 Following are descriptions of the key associations.
 
 ### script
+```javascript
 script: [
 	{
     target: target,
@@ -48,12 +49,14 @@ script: [
 	},
   ...
 ]
+``
 
 - sources can be a single path or an array of paths, and paths are relative to the css_base_path, without filename suffixes. eample "css/test.css" -> "test"
 - target is one path, relative to the target_dir
 - gzip is true or false or omitted, and leads to a gzip compressed copy of the target file
 
 ### style
+```javascript
 style: [
 	{
     target: target,
@@ -62,12 +65,14 @@ style: [
 	},
   ...
 ]
+``
 
 - sources can be a single path or an array of paths, and paths are relative to the css_base_path, without filename suffixes. eample "css/test.css" -> "test"
 - target is one path, relative to the target_dir
 - gzip is true or false or omitted, and leads to a gzip compressed copy of the target file
 
 ### html
+```javascript
 html: [
 	{
     target: target,
@@ -76,17 +81,20 @@ html: [
 	},
   ...
 ]
+``
 
 - sources can be a single path or an array of paths, and paths are relative to the html_base_path, without filename suffixes. eample "html/test.html" -> "test"
 - target is one path, relative to the target_dir
 - gzip is true or false or omitted, and leads to a gzip compressed copy of the target file
 
 ### sync
+```javascript
 sync: [
   path,
 	[source-path, target-path],
 	...
 ]
+``
 
 path can be a single path relative to source_dir, or a two element array with paths where the first path is the source path and the second is the target path.
 directory structures are created automatically. existing files are overwritten and never deleted.
@@ -94,12 +102,12 @@ directory structures are created automatically. existing files are overwritten a
 ### other keys
 |key|description|default value|
 ----|----|----
-|css_base_path||"css"|
-|javascript_base_path||"js"|
-|html_base_path||"html"|
-|source_dir||""|
-|target_dir||"../distrib"|
+|css_base_path||"css/"|
 |debug|if debug is true the js/html/css files are not compressed|false|
+|javascript_base_path||"js/"|
+|html_base_path||"html/"|
+|source_dir||""|
+|target_dir||"../distrib/"|
 
 ## Full example
 ```javascript
