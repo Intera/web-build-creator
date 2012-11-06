@@ -153,7 +153,7 @@ wbc.create_build(websiteBuild)
 ```
 
 # Developer infos
-Included dependencies as node modules
+The included dependencies as node modules are:
 
 - clean-css
 - coffee-script
