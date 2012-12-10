@@ -27,7 +27,7 @@ The configuration object is a javascript object
 
 ``{}``
 
-and can contain the following keys
+and can have the following keys
 
 - css_base_path
 - debug
@@ -40,7 +40,7 @@ and can contain the following keys
 - sync
 - target_dir
 
-Following are descriptions of the key associations.
+Following are descriptions for the key associations.
 
 ### script
 ```javascript
@@ -54,9 +54,9 @@ script: [
 ]
 ```
 
-- sources can be a single path or an array of paths, and paths are relative to the css_base_path, without filename suffixes. eample "css/test.css" -> "test"
-- target is one path, relative to the target_dir
-- gzip is true or false or omitted, and leads to a gzip compressed copy of the target file
+- Sources can be a single path or an array of paths, and paths are relative to the css_base_path, with or without filename suffixes. Example: "test" stands for "js/test.js"
+- Target is one path, relative to the target_dir
+- Gzip, if true, creates a gzip compressed copy of the file with the same name and a .gz suffix. Can also be omitted or false
 
 ### style
 ```javascript
@@ -70,9 +70,9 @@ style: [
 ]
 ```
 
-- sources can be a single path or an array of paths, and paths are relative to the css_base_path, without filename suffixes. eample "css/test.css" -> "test"
-- target is one path, relative to the target_dir
-- gzip is true or false or omitted, and leads to a gzip compressed copy of the target file
+- Sources can be a single path or an array of paths, and paths are relative to the css_base_path, with or without filename suffixes. example: "test" stands for "css/test.css".
+- Target is one path, relative to the target_dir
+- Gzip, if true, creates a gzip compressed copy of the file with the same name and a .gz suffix. Can also be omitted or false
 
 ### html
 ```javascript
@@ -86,9 +86,9 @@ html: [
 ]
 ```
 
-- sources can be a single path or an array of paths, and paths are relative to the html_base_path, without filename suffixes. eample "html/test.html" -> "test"
-- target is one path, relative to the target_dir
-- gzip is true or false or omitted, and leads to a gzip compressed copy of the target file
+- Sources can be a single path or an array of paths, and paths are relative to the html_base_path, with or without filename suffixes. Example: "test" stands for "html/test.html".
+- Target is one path, relative to the target_dir
+- Gzip, if true, creates a gzip compressed copy of the file with the same name and a .gz suffix. Can also be omitted or false
 
 ### sync
 ```javascript
@@ -100,7 +100,7 @@ sync: [
 ```
 
 path can be a single path relative to source_dir, or a two element array with paths where the first path is the source path and the second is the target path.
-directory structures are created automatically. existing files are overwritten and never deleted.
+Directory structures are created automatically. Existing files are overwritten and never deleted.
 
 ### other keys
 |key|description|default value|
