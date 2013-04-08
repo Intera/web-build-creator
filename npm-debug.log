@@ -1,0 +1,32 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'update' ]
+2 info using npm@1.2.15
+3 info using node@v0.10.2
+4 verbose read json /home/jkalbhenn/projects/dev/intera/tools/web-build-creator/package.json
+5 verbose read json /home/jkalbhenn/projects/dev/intera/tools/web-build-creator/node_modules/clean-css/package.json
+6 verbose read json /home/jkalbhenn/projects/dev/intera/tools/web-build-creator/node_modules/coffee-script/package.json
+7 verbose read json /home/jkalbhenn/projects/dev/intera/tools/web-build-creator/node_modules/coffeekup/package.json
+8 verbose read json /home/jkalbhenn/projects/dev/intera/tools/web-build-creator/node_modules/html-minifier/package.json
+9 verbose read json /home/jkalbhenn/projects/dev/intera/tools/web-build-creator/node_modules/ncp/package.json
+10 verbose read json /home/jkalbhenn/projects/dev/intera/tools/web-build-creator/node_modules/uglify-js/package.json
+11 verbose read json /home/jkalbhenn/projects/dev/intera/tools/web-build-creator/node_modules/underscore/package.json
+12 verbose read json /home/jkalbhenn/projects/dev/intera/tools/web-build-creator/node_modules/web-build-creator/package.json
+13 info outdated updating undefined
+14 error Error: invalid version: 0.1
+14 error     at validVersion (/usr/lib/node_modules/npm/node_modules/read-package-json/read-json.js:571:40)
+14 error     at final (/usr/lib/node_modules/npm/node_modules/read-package-json/read-json.js:323:23)
+14 error     at /usr/lib/node_modules/npm/node_modules/read-package-json/read-json.js:139:33
+14 error     at cb (/usr/lib/node_modules/npm/node_modules/slide/lib/async-map.js:48:11)
+14 error     at /usr/lib/node_modules/npm/node_modules/read-package-json/read-json.js:301:48
+14 error     at fs.js:207:20
+14 error     at Object.oncomplete (fs.js:107:15)
+15 error If you need help, you may report this log at:
+15 error     <http://github.com/isaacs/npm/issues>
+15 error or email it to:
+15 error     <npm-@googlegroups.com>
+16 error System Linux 3.8.5-1-ARCH
+17 error command "/usr/bin/node" "/usr/bin/npm" "update"
+18 error cwd /home/jkalbhenn/projects/dev/intera/tools/web-build-creator
+19 error node -v v0.10.2
+20 error npm -v 1.2.15
+21 verbose exit [ 1, true ]

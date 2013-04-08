@@ -5,6 +5,7 @@
 - File merging
 - Gzip compression
 - Inheritable configuration
+- Coffeescript\Coffeekup support
 
 # Dependencies
 - nodejs
