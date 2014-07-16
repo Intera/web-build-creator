@@ -128,3 +128,7 @@ It is written in coffee-script for the most part.
 # Possible enhancements
 - lesscss support
 - set working directory per task
+- automatic processing on filesystem updates
+
+# Similar projects
+[cake-flour](https://github.com/ricardobeat/cake-flour)
