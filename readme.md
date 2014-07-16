@@ -13,16 +13,13 @@
 all other dependencies are included.
 
 # Usage
-* Create a Javascript file
+* Create a Javascript configuration file
 * Load the wbc module
 * Define a config object
 * Call wbc.create_build(config)
 
-## Caveats
-If you compress HTML, you must use semicolons for inline Javascript, and you can use Javascript line-comments only for the last lines in a ``<script>`` tag.
-
 ## Configuration
-See example-build-config.js
+[Example](https://raw.githubusercontent.com/Intera/web-build-creator/master/example-build-config.js)
 
 The configuration object is a javascript object
 
@@ -113,48 +110,8 @@ Directory structures are created automatically. Existing files are overwritten a
 |source_dir||""|
 |target_dir||"../distrib/"|
 
-## Full example
-```javascript
-var wbc = require("web-build-creator")
-
-var websiteBuild = {
-	target_dir: "../website",
-	//if debug is true the js/html/css files are not compressed
-	debug: false,
-	script: [
-		{
-			target: "js/my-target-file",
-			sources: ["file-1", "file-2", "file-3"]
-			gzip: true
-		},
-		{
-			target: "js/my-target-file",
-			sources: "file-4"
-		}
-	],
-	style: [
-		{
-			target: "css/file-5",
-			sources: [
-				"../lib/css/file-6",
-				"file-7"
-			]
-		}
-	],
-	html: [
-		{
-			target: "index",
-			sources: "index-website"
-		}
-	],
-	sync: [
-		"img",
-		["content-source.html", "test/html/content.html"]
-	]
-}
-
-wbc.create_build(websiteBuild)
-```
+## Caveats
+If you compress HTML, you must use semicolons for inline Javascript, and line-comments can only be used for the last line of a ``<script>`` tag.
 
 # Developer infos
 The included dependencies as node modules are:
