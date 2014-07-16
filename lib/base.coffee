@@ -8,9 +8,6 @@ _ = require("underscore")
 util = require "./utility"
 
 default_config =
-  javascript_base_path: "js/"
-  css_base_path: "css/"
-  html_base_path: "html/"
   source_dir: ""
   target_dir: "../build/"
 
@@ -24,12 +21,13 @@ prepare_config = (arg) ->
 wbc_script = (config) ->
   log "compress_script", 1
   util.validate_script_config config
-  config.script.forEach (config_script) ->
-    target_path = config.target_dir + config_script.target + '.js'
+  config.script.forEach (ele) ->
+    target_path = config.target_dir + ele.target + '.js'
     util.ensure_directory_structure nodejs.path.dirname(target_path)
     util.create_file target_path
-    source_paths = util.any_to_array(config_script.sources).map (path) ->
-      path = config.source_dir + config.javascript_base_path + path
+    path_prefix = ele.path_prefix or ""
+    source_paths = util.any_to_array(ele.sources).map (path) ->
+      path = config.source_dir + path_prefix + path
       if fs.existsSync path
         path
       else if fs.existsSync path + ".coffee"
@@ -43,7 +41,7 @@ wbc_script = (config) ->
     if !config.debug
       log "compressing #{target_path}"
       util.process_file target_path, util.compress_js
-    if config_script.gzip
+    if ele.gzip
       log "creating #{target_path}.gz"
       util.create_gzip_copy target_path
   log "", -1
@@ -55,8 +53,9 @@ wbc_style = (config) ->
     log "creating " + target_path
     util.ensure_directory_structure nodejs.path.dirname(target_path)
     util.create_file target_path
+    path_prefix = ele.path_prefix or ""
     source_paths = util.any_to_array(ele.sources).map (path) ->
-      config.source_dir + config.css_base_path + path + '.css'
+      config.source_dir + path_prefix + path + '.css'
     source_paths.forEach (path) ->
       log "reading " + path
     log "writing #{target_path}"
@@ -75,8 +74,9 @@ wbc_html = (config) ->
     target_path = config.target_dir + ele.target + '.html'
     util.ensure_directory_structure nodejs.path.dirname(target_path)
     util.create_file target_path
+    path_prefix = ele.path_prefix or ""
     source_paths = util.any_to_array(ele.sources).map (path) ->
-      path = config.source_dir + config.html_base_path + path
+      path = config.source_dir + path_prefix + path
       if fs.existsSync path
         path
       else if fs.existsSync path + ".coffee"

@@ -30,11 +30,8 @@ The configuration object is a javascript object
 
 and can have the following keys
 
-- css_base_path
 - debug
 - html
-- html_base_path
-- javascript_base_path
 - script
 - source_dir
 - style
@@ -48,6 +45,7 @@ Following are descriptions for the key associations.
 script: [
 	{
     target: target,
+    path_prefix: string,
 		sources: sources,
 		gzip: boolean
 	},
@@ -55,7 +53,8 @@ script: [
 ]
 ```
 
-- Sources can be a single path or an array of paths, and paths are relative to the css_base_path, with or without filename suffixes. Example: "test" stands for "js/test.js"
+- Sources can be a single path or an array of paths, with or without filename suffixes. Example: "js/test" stands for "js/test.js"
+- The value of path_prefix is prepended to all source paths
 - Target is one path, relative to the target_dir
 - Gzip, if true, creates a gzip compressed copy of the file with the same name and a .gz suffix. Can also be omitted or false
 
@@ -64,6 +63,7 @@ script: [
 style: [
 	{
     target: target,
+    path_prefix: string,
 		sources: sources,
 		gzip: boolean
 	},
@@ -71,7 +71,8 @@ style: [
 ]
 ```
 
-- Sources can be a single path or an array of paths, and paths are relative to the css_base_path, with or without filename suffixes. example: "test" stands for "css/test.css".
+- Sources can be a single path or an array of paths, with or without filename suffixes. example: "css/test" stands for "css/test.css".
+- The value of path_prefix is prepended to all source paths
 - Target is one path, relative to the target_dir
 - Gzip, if true, creates a gzip compressed copy of the file with the same name and a .gz suffix. Can also be omitted or false
 
@@ -80,6 +81,7 @@ style: [
 html: [
 	{
     target: target,
+    path_prefix: string,
 		sources: sources,
 		gzip: boolean
 	},
@@ -87,7 +89,8 @@ html: [
 ]
 ```
 
-- Sources can be a single path or an array of paths, and paths are relative to the html_base_path, with or without filename suffixes. Example: "test" stands for "html/test.html".
+- Sources can be a single path or an array of paths, with or without filename suffixes. Example: "html/test" stands for "html/test.html".
+- The value of path_prefix is prepended to all source paths
 - Target is one path, relative to the target_dir
 - Gzip, if true, creates a gzip compressed copy of the file with the same name and a .gz suffix. Can also be omitted or false
 
@@ -106,10 +109,7 @@ Directory structures are created automatically. Existing files are overwritten a
 ### other keys
 |key|description|default value|
 ----|----|----
-|css_base_path||"css/"|
 |debug|if debug is true the js/html/css files are not compressed|false|
-|javascript_base_path||"js/"|
-|html_base_path||"html/"|
 |source_dir||""|
 |target_dir||"../distrib/"|
 
@@ -170,3 +170,4 @@ It is written in coffee-script for the most part.
 
 # Possible enhancements
 - lesscss support
+- set working directory per task

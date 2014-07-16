@@ -5,25 +5,29 @@ clean_css = require "clean-css"
 htmlMinifier = require("html-minifier").minify
 zlib = require "zlib"
 _ = require "underscore"
+coffee = require "coffee-script"
 try
   coffeekup = require "coffeekup"
 
-any_to_array = (arg) ->
-  if _.isArray(arg) then arg else [arg]
+any_to_array = (a) -> # string -> string
+  if _.isArray(a) then a else [a]
 
-compress_js = (str) ->
-  uglify_js.minify(str, fromString: true).code
+compress_js = (s) -> # string -> string
+  uglify_js.minify(s, fromString: true).code
 
-compress_css = (str) ->
-  clean_css.process str,
+compress_css = (s) -> # string -> string
+  c = new clean_css
     keepSpecialComments: 0
     removeEmpty: true
+  c.minify s
 
 compile_coffeescript = (str) ->
   coffee.compile str, bare: true
 
 compile_coffeekup = (str) ->
-  coffeekup.render str
+  if coffeekup
+    coffeekup.render str
+  else throw new Error "coffeekup is not installed. npm install coffeekup"
 
 compress_html = (str) ->
   str.replace(/\s+/g, " ").replace(/\n+/g, "\n")
@@ -31,7 +35,7 @@ compress_html = (str) ->
     .replace(/;\s/g, ";")
     .replace(/">\s+/g, ">")
     .replace(/"\/>\s+/g, "/>")
-    # android 2.3 shows labels in the same line as an <input>-tag as the value of the <input>
+    # android 2.3 shows <label>s that are on the same line as an <input>-tag as the value of the <input>
     .replace(/<label(.*?)>/g, (match) -> match + "\n")
 
 ensure_directory_structure = (path) ->
