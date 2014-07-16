@@ -1,12 +1,12 @@
-coffee = require "coffee-script"
 fs = require "fs"
 $path = require "path"
 uglify_js = require "uglify-js"
-coffeekup = require "coffeekup"
 clean_css = require "clean-css"
 htmlMinifier = require("html-minifier").minify
 zlib = require "zlib"
 _ = require "underscore"
+try
+  coffeekup = require "coffeekup"
 
 any_to_array = (arg) ->
   if _.isArray(arg) then arg else [arg]

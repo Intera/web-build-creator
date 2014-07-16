@@ -1,11 +1,11 @@
-# Create a deployment ready custom build of a HTML\CSS\Javascript project.
+# HTML/CSS/Javascript compression/merge and filesystem structure sync/creation. automatic coffeescript support
 
 - Javascript, CSS and HTML compression
 - File and directory tree synchronisation with renaming
 - File merging
 - Gzip compression
-- Inheritable configuration
 - Coffeescript\Coffeekup support
+- Inheritable configuration
 
 # Dependencies
 - nodejs
@@ -167,3 +167,6 @@ The included dependencies as node modules are:
 - underscore
 
 It is written in coffee-script for the most part.
+
+# Possible enhancements
+- lesscss support

@@ -2,7 +2,7 @@ var wbc = require("web-build-creator")
 
 var websiteBuild = {
 	target_dir: "../website",
-	//if debug is true the js/html/css files are not compressed
+	// if debug is true then the js/html/css files are not compressed
 	debug: false,
 	script: [
 		{

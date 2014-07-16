@@ -5,7 +5,7 @@ log = require("./logger").log
 deepCopy = require("ncp").ncp
 nodejs.path = require("path")
 _ = require("underscore")
-util = require("./utility")
+util = require "./utility"
 
 default_config =
   javascript_base_path: "js/"
