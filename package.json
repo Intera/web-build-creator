@@ -1,6 +1,6 @@
 {
   "name": "web-build-creator",
-  "version": "1",
+  "version": "1.0.0",
   "description": "HTML/CSS/Javascript compression/merge, coffeescript compilation and filesystem structure sync/creation",
 	"homepage": "https://github.com/Intera/web-build-creator",
   "bug": {
@@ -19,6 +19,6 @@
 		"uglify-js": "*",
 		"underscore": "*"
 	},
-	"main": "web-build-creator.js",
+	"main": "lib/web-build-creator.js",
 	"keywords": [ "compression", "minification", "minifier", "coffeescript", "sync", "grunt" ]
 }

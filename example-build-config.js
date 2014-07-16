@@ -7,7 +7,7 @@ var websiteBuild = {
 	script: [
 		{
 			target: "js/my-target-file",
-			sources: ["file-1", "file-2", "file-3"]
+			sources: ["file-1", "file-2", "file-3"],
 			gzip: true
 		},
 		{
