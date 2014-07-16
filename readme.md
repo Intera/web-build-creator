@@ -107,8 +107,8 @@ Directory structures are created automatically. Existing files are overwritten a
 |key|description|default value|
 ----|----|----
 |debug|if debug is true the js/html/css files are not compressed|false|
-|source_dir||""|
-|target_dir||"../distrib/"|
+|source_dir|path prefix for source files|""|
+|target_dir|path prefix for compiled target files|"../compiled/"|
 
 ## Caveats
 If you compress HTML, you must use semicolons for inline Javascript, and line-comments can only be used for the last line of a ``<script>`` tag.

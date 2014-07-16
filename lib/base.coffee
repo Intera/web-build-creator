@@ -9,7 +9,7 @@ util = require "./utility"
 
 default_config =
   source_dir: ""
-  target_dir: "../build/"
+  target_dir: "../compiled/"
 
 prepare_config = (arg) ->
   throw "missing configuration object" unless arg
