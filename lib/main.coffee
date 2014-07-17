@@ -130,7 +130,8 @@ watch_create_build = (path, config, filename_filter) ->
   create_build(config)
   console.log("\nnow waiting for new changes in \"source\"...")
   watch path, (filename) ->
-    wbc.create_build(config) if filename_filter filename
+    if filename_filter and filename_filter filename then create_build config
+    else create_build config
 
 exports.create_build = create_build
 exports.watch_create_build = watch_create_build

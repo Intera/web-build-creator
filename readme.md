@@ -21,10 +21,11 @@ all other dependencies are included.
     npm install path-to-cloned-directory
 
 # Usage
-* Create a Javascript configuration file
+* Create a Javascript file - this can be executable
+* Define a configuration object
 * Load the wbc module
-* Define a config object
 * Call wbc.create_build(config)
+* Or call wbc.watch_create_build(path, config)
 
 ## Configuration
 [Example](https://raw.githubusercontent.com/Intera/web-build-creator/master/example-build-config.js)
@@ -135,7 +136,7 @@ The included dependencies as node modules are:
 - uglifyjs
 - underscore
 
-It is written in coffee-script for the most part.
+It is written in coffeescript for the most part.
 
 # Possible enhancements
 - lesscss support
