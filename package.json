@@ -1,6 +1,6 @@
 {
   "name": "web-build-creator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "HTML/CSS/Javascript compression/merge and filesystem structure sync/creation. automatic coffeescript support",
 	"homepage": "https://github.com/Intera/web-build-creator",
   "bug": {

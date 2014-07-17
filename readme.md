@@ -1,4 +1,4 @@
-# HTML/CSS/Javascript compression/merge and filesystem structure sync/creation. automatic coffeescript support
+# Features
 
 - Javascript, CSS and HTML compression
 - File and directory tree synchronisation with renaming
@@ -12,6 +12,13 @@
 - nodejs
 
 all other dependencies are included.
+
+# Installation
+    npm install web-build-creator
+
+## Alternative
+    git clone https://github.com/Intera/web-build-creator.git
+    npm install path-to-cloned-directory
 
 # Usage
 * Create a Javascript configuration file
