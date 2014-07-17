@@ -2,6 +2,7 @@
 
 - Javascript, CSS and HTML compression
 - File and directory tree synchronisation with renaming
+- File and directory watching with automatic compile
 - File merging
 - Gzip compression
 - Coffeescript\Coffeekup support
@@ -109,6 +110,10 @@ Directory structures are created automatically. Existing files are overwritten a
 |debug|if debug is true the js/html/css files are not compressed|false|
 |source_dir|path prefix for source files|""|
 |target_dir|path prefix for compiled target files|"../compiled/"|
+
+## File watching
+    require("web-build-creator").watch_create_build("source", build-config)
+stop with ctrl+c
 
 ## Caveats
 If you compress HTML, you must use semicolons for inline Javascript, and line-comments can only be used for the last line of a ``<script>`` tag.

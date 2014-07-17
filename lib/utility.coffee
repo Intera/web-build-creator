@@ -8,6 +8,8 @@ _ = require "underscore"
 coffee = require "coffee-script"
 try
   coffeekup = require "coffeekup"
+try
+  less = require "less"
 
 any_to_array = (a) -> # string -> string
   if _.isArray(a) then a else [a]
@@ -21,22 +23,26 @@ compress_css = (s) -> # string -> string
     removeEmpty: true
   c.minify s
 
-compile_coffeescript = (str) ->
-  coffee.compile str, bare: true
+compile_coffeescript = (s) ->
+  coffee.compile s, bare: true
 
-compile_coffeekup = (str) ->
+compile_coffeekup = (s) ->
   if coffeekup
-    coffeekup.render str
+    coffeekup.render s
   else throw new Error "coffeekup is not installed. npm install coffeekup"
 
-compress_html = (str) ->
-  str.replace(/\s+/g, " ").replace(/\n+/g, "\n")
-    .replace(/>\s+</g, "><")
-    .replace(/;\s/g, ";")
-    .replace(/">\s+/g, ">")
-    .replace(/"\/>\s+/g, "/>")
-    # android 2.3 shows <label>s that are on the same line as an <input>-tag as the value of the <input>
-    .replace(/<label(.*?)>/g, (match) -> match + "\n")
+compile_less = (s) ->
+  # this is asynchronous and can not be integrated because of this yet
+  if less
+    parser = new less.Parser
+    parser.parse s, (error, tree) ->
+      if error then console.error(error) else tree.toCSS()
+  else throw new Error "less is not installed. npm install less"
+
+compress_html = (s) ->
+  htmlMinifier s,
+    removeComments: true
+    collapseWhitespace: true
 
 ensure_directory_structure = (path) ->
   fs.existsSync(path) or (ensure_directory_structure($path.dirname(path)) and fs.mkdirSync(path))

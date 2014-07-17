@@ -1,10 +1,10 @@
 nodejs = {}
-require("coffee-script")
-fs = require("fs")
+fs = require "fs"
 log = require("./logger").log
 deepCopy = require("ncp").ncp
-nodejs.path = require("path")
-_ = require("underscore")
+nodejs.path = require "path"
+_ = require "underscore"
+watch = require "node-watch"
 util = require "./utility"
 
 default_config =
@@ -19,10 +19,10 @@ prepare_config = (arg) ->
   arg
 
 wbc_script = (config) ->
-  log "compress_script", 1
+  log "compile script", 1
   util.validate_script_config config
   config.script.forEach (ele) ->
-    target_path = config.target_dir + ele.target + '.js'
+    target_path = config.target_dir + ele.target
     util.ensure_directory_structure nodejs.path.dirname(target_path)
     util.create_file target_path
     path_prefix = ele.path_prefix or ""
@@ -47,9 +47,9 @@ wbc_script = (config) ->
   log "", -1
 
 wbc_style = (config) ->
-  log "compress_css", 1
+  log "compile css", 1
   config.style.forEach (ele) ->
-    target_path = config.target_dir + ele.target + '.css'
+    target_path = config.target_dir + ele.target
     log "creating " + target_path
     util.ensure_directory_structure nodejs.path.dirname(target_path)
     util.create_file target_path
@@ -71,7 +71,7 @@ wbc_style = (config) ->
 wbc_html = (config) ->
   log "compress_html", 1
   config.html.forEach (ele) ->
-    target_path = config.target_dir + ele.target + '.html'
+    target_path = config.target_dir + ele.target
     util.ensure_directory_structure nodejs.path.dirname(target_path)
     util.create_file target_path
     path_prefix = ele.path_prefix or ""
@@ -126,4 +126,12 @@ create_build = (config) ->
     else
       console.log exc
 
+watch_create_build = (path, config, filename_filter) ->
+  create_build(config)
+  console.log("\nnow waiting for new changes in \"source\"...")
+  watch path, (filename) ->
+    wbc.create_build(config) if filename_filter filename
+
 exports.create_build = create_build
+exports.watch_create_build = watch_create_build
+exports.watch = watch

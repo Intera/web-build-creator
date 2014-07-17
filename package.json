@@ -13,12 +13,13 @@
   },
 	"dependencies": {
 		"coffee-script": "*",
-		"clean-css": "*",
-		"html-minifier": "*",
-		"ncp": "*",
-		"uglify-js": "*",
-		"underscore": "*"
+		"clean-css": "2.2.8",
+		"html-minifier": "0.6.5",
+		"ncp": "0.6.0",
+		"uglify-js": "2.4.15",
+		"underscore": "*",
+		"node-watch": "*"
 	},
 	"main": "lib/web-build-creator.js",
-	"keywords": [ "compression", "minification", "minifier", "coffeescript", "sync" ]
+	"keywords": [ "compression", "minification", "minifier", "build", "coffeescript", "sync" ]
 }
